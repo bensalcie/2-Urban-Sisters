@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/coloWhite"
+    android:layout_height="match_parent"
+    tools:context=".logincontroller.LoginFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:background="@color/coloWhite"
+
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/crescentoContainer"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                style="@style/items_margin_tyle"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/hea" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/loginHolder"
+                android:layout_below="@+id/crescentoContainer"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_header"
+                    android:fontFamily="@font/calibri"
+                    android:textSize="26sp"
+                    android:layout_marginBottom="20dp"
+                    style="@style/items_margin_tyle"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:background="@drawable/red_rounded_solid"
+                    android:padding="10dp"
+                    android:id="@+id/etUserName"
+                    android:layout_weight="1"
+                    android:textColorHint="@color/colorGray"
+                    android:textColor="@color/colorBlack"
+                    style="@style/items_margin_tyle"
+                    android:inputType="textEmailAddress"
+                    android:layout_height="0dp"
+                    android:hint="@string/email" />
+
+
+
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:background="@drawable/red_rounded_solid"
+                    android:padding="10dp"
+                    android:id="@+id/etpassword"
+                    android:layout_marginTop="10dp"
+                    style="@style/items_margin_tyle"
+                    android:textColorHint="@color/colorGray"
+                    android:textColor="@color/colorBlack"
+                    android:inputType="textPassword"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/confirm_password"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/confirm_password"
+                    android:fontFamily="@font/calibri"
+                    android:textSize="18sp"
+                    android:id="@+id/tvConfirmPassword"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginLeft="20dp" />
+
+                <ProgressBar
+                    android:id="@+id/loginProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/colorAccent"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/red_rounded_solid"
+                    android:fontFamily="@font/calibri"
+                    android:text="@string/sign_in"
+
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    tools:targetApi="lollipop" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/or"
+                    android:fontFamily="@font/calibri"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="20dp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_horizontal" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sign_up"
+                        android:fontFamily="@font/calibri"
+                        android:textAlignment="center"
+                        android:textSize="18sp"
+                        android:layout_weight="1"
+                        android:id="@+id/tvNavRegister"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginStart="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorAccent"
+                        android:gravity="center_horizontal"
+                        android:layout_marginLeft="20dp" />
+
+                    <TextView
+                        android:id="@+id/tvForgotPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="@font/calibri"
+                        android:gravity="center_horizontal"
+                        android:text="@string/forgot_password"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="18sp"
+                        android:textStyle="italic" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</FrameLayout>
