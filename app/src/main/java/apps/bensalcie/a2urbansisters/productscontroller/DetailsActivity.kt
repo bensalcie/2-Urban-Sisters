@@ -84,6 +84,7 @@ class DetailsActivity : AppCompatActivity() {
         }
         val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
         val currentDate = sdf.format(Date())
+        val productId = mExtenstionsDatabase!!.push().key
 
                 val map = HashMap<String, Any>()
                 map["name"] = name!!
@@ -96,7 +97,7 @@ class DetailsActivity : AppCompatActivity() {
                 map["userid"] = auth!!.uid!!
                 map["quantity"] = qty
                 map["isdelivered"] = "0"
-        mExtenstionsDatabase!!.child(auth!!.uid!!).updateChildren(map)
+        mExtenstionsDatabase!!.child(productId!!).updateChildren(map)
                     .addOnCompleteListener { task1 ->
                         if (task1.isSuccessful) {
                             Snackbar.make(it, "Order Placed Successfully", Snackbar.LENGTH_LONG)

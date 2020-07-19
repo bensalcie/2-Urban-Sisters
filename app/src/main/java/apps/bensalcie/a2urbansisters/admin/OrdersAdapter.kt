@@ -7,11 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import apps.bensalcie.a2urbansisters.R
 import apps.bensalcie.a2urbansisters.productscontroller.DetailsActivity
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 
 
@@ -47,17 +50,25 @@ class OrdersAdapter constructor(options: FirebaseRecyclerOptions<Order>) :
             textStarRating.text = price
 
             holder.itemView.setOnClickListener {
-                val detailsIntent= Intent(holder.itemView.context,DetailsActivity::class.java)
-                detailsIntent.putExtra("name",productName.name)
-                detailsIntent.putExtra("image",productName.image)
-                detailsIntent.putExtra("desc",productName.description)
-                detailsIntent.putExtra("time",productName.time)
-                detailsIntent.putExtra("price",productName.amount)
-                detailsIntent.putExtra("pid",productName.pid)
-                itemView.context.startActivity(detailsIntent)
+                val dialog= AlertDialog.Builder(itemView.context)
+                dialog.setTitle("Order Item")
+                dialog.setMessage("You are about to mark  ${productName.name} as Delivered\n\n Sure about this?")
+
+                dialog.setPositiveButton("Accept") { _, _ ->
+                    markAsDelivered(productName)
+
+                }
+                dialog.setNegativeButton("Decline", null)
+                dialog.show()
 
             }
 
+        }
+
+        private fun markAsDelivered(productName: Order) {
+            val ref=FirebaseDatabase.getInstance().reference.child("URBANSISTERS").child("orders").child(productName.userid!!)
+            ref.child("isdelivered").setValue("1")
+            Toast.makeText(itemView.context, "Marked as Delivered", Toast.LENGTH_SHORT).show()
         }
 
     }
